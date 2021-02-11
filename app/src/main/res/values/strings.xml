@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">covisor</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="about_app_message">Мониторинг сотрудников в связи
+с ЧП по COVID-19 Monitoring of employees in connection
+with emergency on COVID-19</string>
+    <string name="title_description">Авторизация</string>
 </resources>
