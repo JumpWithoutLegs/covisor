@@ -28,6 +28,8 @@ public class DailyMonitoringFragment extends Fragment {
         bottomNavigationView = getActivity().findViewById(R.id.bottom_navigation_view);
         if (MyApp.getInstance().isLogged()) {
             bottomNavigationView.setVisibility(View.VISIBLE);
+            TextView t = getActivity().findViewById(R.id.toolbar_title);
+            t.setText("Ежедневный мониторинг");
         } else {
             NavHostFragment navHostFragment = (NavHostFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
             Objects.requireNonNull(navHostFragment).getNavController().navigate(R.id.authFragment);
@@ -38,8 +40,7 @@ public class DailyMonitoringFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        TextView t = getActivity().findViewById(R.id.toolbar_title);
-        t.setText("Ежедневный мониторинг");
+
 
     }
 }

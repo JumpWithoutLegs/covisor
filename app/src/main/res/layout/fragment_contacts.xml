@@ -7,44 +7,11 @@
     android:layout_height="match_parent"
     tools:context=".view.ContactsFragment">
 
-
-    <LinearLayout
-        android:id="@+id/work_group_linear_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="50dp"
-        android:background="@android:drawable/dialog_holo_light_frame"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3">
-
-        <ImageView
-            android:id="@+id/work_group_image"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:cropToPadding="true"
-            android:paddingLeft="10dp"
-            android:paddingTop="5dp"
-            android:paddingRight="10dp"
-            android:src="@drawable/work_group_image" />
-
-        <TextView
-            android:id="@+id/work_group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:paddingBottom="10dp"
-            android:text="Коллеги" />
-
-    </LinearLayout>
-
     <LinearLayout
         android:id="@+id/family_group_linear_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="26dp"
         android:layout_marginEnd="16dp"
         android:background="@android:drawable/dialog_holo_light_frame"
         android:orientation="vertical"
@@ -72,41 +39,24 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/friends_group_linear_id"
+    <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:background="@android:drawable/dialog_holo_light_frame"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="@+id/work_group_linear_id"
-        app:layout_constraintStart_toStartOf="@+id/work_group_linear_id"
-        app:layout_constraintTop_toBottomOf="@+id/work_group_linear_id">
-
-        <ImageView
-            android:id="@+id/friends_group_image"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:cropToPadding="true"
-            android:paddingTop="10dp"
-            android:src="@drawable/friends_group_image" />
-
-        <TextView
-            android:id="@+id/friends_group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:paddingBottom="10dp"
-            android:text="Друзья" />
-
-    </LinearLayout>
+        android:drawableTop="@drawable/ic_warning"
+        android:text="@string/attention_message_text"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/anonymous_group_linear_id"
+        android:id="@+id/other_group_linear_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="36dp"
         android:background="@android:drawable/dialog_holo_light_frame"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="@+id/family_group_linear_id"
@@ -132,18 +82,67 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView3"
+    <LinearLayout
+        android:id="@+id/work_group_linear_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:drawableTop="@drawable/ic_warning"
-        android:text="@string/attention_message_text"
-        android:textAlignment="center"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="26dp"
+        android:background="@android:drawable/dialog_holo_light_frame"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+        <ImageView
+            android:id="@+id/work_group_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:cropToPadding="true"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/work_group_image" />
+
+        <TextView
+            android:id="@+id/work_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingBottom="10dp"
+            android:text="Коллеги" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/friends_group_linear_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:background="@android:drawable/dialog_holo_light_frame"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="@+id/work_group_linear_id"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/work_group_linear_id"
+        app:layout_constraintTop_toBottomOf="@+id/work_group_linear_id">
+
+        <ImageView
+            android:id="@+id/friends_group_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:cropToPadding="true"
+            android:paddingTop="10dp"
+            android:src="@drawable/friends_group_image" />
+
+        <TextView
+            android:id="@+id/friends_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingBottom="10dp"
+            android:text="Друзья" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
