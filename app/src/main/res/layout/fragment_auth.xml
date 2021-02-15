@@ -2,80 +2,106 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintLayout"
+    android:id="@+id/authConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/auth_background"
     tools:context=".view.AuthFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
-
     <ImageView
         android:id="@+id/logo_image_view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_height="201dp"
+        android:layout_marginTop="24dp"
         android:src="@drawable/logo_covid_monitoring"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/auth_fragment_name"
         android:layout_width="wrap_content"
-        android:layout_height="19dp"
-        android:layout_marginTop="24dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="@string/title_description"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/logo_image_view"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="@+id/logo_image_view"
-        app:layout_constraintTop_toBottomOf="@+id/logo_image_view"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/logo_image_view" />
 
-    <TextView
-        android:id="@+id/about_app_tv"
-        android:layout_width="320dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:text="@string/about_app_message"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/auth_fragment_name"
-        app:layout_constraintStart_toStartOf="@+id/auth_fragment_name"
-        app:layout_constraintTop_toBottomOf="@+id/auth_fragment_name" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_password_ti"
-        android:layout_width="0dp"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sign_in_btn"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBaseline_toBaselineOf="@+id/input_login_ti"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
+        android:layout_marginTop="32dp"
+        android:text="@string/enter_btn"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:typeface="normal"
+        app:backgroundTint="#339F78"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/input_password_ti"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="@+id/input_password_ti"
+        app:layout_constraintTop_toBottomOf="@+id/input_password_ti" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_login_ti"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="167dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/about_app_tv"
+        app:layout_constraintStart_toStartOf="@+id/about_app_tv"
+        app:layout_constraintTop_toBottomOf="@+id/about_app_tv">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:backgroundTint="@color/white"
+            android:hint="@string/login_hint_message"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_password_ti"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/input_login_ti"
+        app:layout_constraintStart_toStartOf="@+id/input_login_ti"
+        app:layout_constraintTop_toBottomOf="@+id/input_login_ti">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:hint="@string/password_hint_message"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/about_app_tv"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:lineSpacingExtra="3sp"
+        android:text="@string/about_app_message"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/auth_fragment_name"
+        app:layout_constraintStart_toStartOf="@+id/auth_fragment_name"
+        app:layout_constraintTop_toBottomOf="@+id/auth_fragment_name" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

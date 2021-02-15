@@ -3,11 +3,54 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/authFragment">
+    app:startDestination="@id/dailyMonitoringFragment">
 
     <fragment
         android:id="@+id/authFragment"
         android:name="com.pavelgostudy.startandroid.covisor.view.AuthFragment"
         android:label="fragment_auth"
         tools:layout="@layout/fragment_auth" />
+    <fragment
+        android:id="@+id/contactsFragment"
+        android:name="com.pavelgostudy.startandroid.covisor.view.ContactsFragment"
+        android:label="fragment_contacts"
+        tools:layout="@layout/fragment_contacts">
+        <action
+            android:id="@+id/action_contactsFragment_to_familyContactsFragment"
+            app:destination="@id/familyContactsFragment" />
+        <action
+            android:id="@+id/action_contactsFragment_to_otherContactsFragment"
+            app:destination="@id/otherContactsFragment" />
+        <action
+            android:id="@+id/action_contactsFragment_to_friendsContactsFragment"
+            app:destination="@id/friendsContactsFragment" />
+        <action
+            android:id="@+id/action_contactsFragment_to_workContactsFragment"
+            app:destination="@id/workContactsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dailyMonitoringFragment"
+        android:name="com.pavelgostudy.startandroid.covisor.view.DailyMonitoringFragment"
+        android:label="fragment_daily_monitoring"
+        tools:layout="@layout/fragment_daily_monitoring" />
+    <fragment
+        android:id="@+id/familyContactsFragment"
+        android:name="com.pavelgostudy.startandroid.covisor.view.FamilyContactsFragment"
+        android:label="fragment_family_contacts"
+        tools:layout="@layout/fragment_family_contacts" />
+    <fragment
+        android:id="@+id/friendsContactsFragment"
+        android:name="com.pavelgostudy.startandroid.covisor.view.FriendsContactsFragment"
+        android:label="friends_contacts_fragment"
+        tools:layout="@layout/fragment_friends_contacts" />
+    <fragment
+        android:id="@+id/otherContactsFragment"
+        android:name="com.pavelgostudy.startandroid.covisor.view.OtherContactsFragment"
+        android:label="other_contacts_fragment"
+        tools:layout="@layout/fragment_other_contacts" />
+    <fragment
+        android:id="@+id/workContactsFragment"
+        android:name="com.pavelgostudy.startandroid.covisor.view.WorkContactsFragment"
+        android:label="work_contacts_fragment"
+        tools:layout="@layout/fragment_work_contacts" />
 </navigation>

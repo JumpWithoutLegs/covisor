@@ -6,4 +6,9 @@
 с ЧП по COVID-19 Monitoring of employees in connection
 with emergency on COVID-19</string>
     <string name="title_description">Авторизация</string>
+    <string name="login_hint_message">Логин</string>
+    <string name="password_hint_message">Пароль</string>
+    <string name="enter_btn">Войти</string>
+    <string name="attention_message_text">Внимание!
+Пожалуйста не забывайте каждый день отмечать свою температуру, а так же не забывайте указывать имена людей с которыми вы контактировали.</string>
 </resources>
