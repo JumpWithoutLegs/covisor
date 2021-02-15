@@ -1,5 +1,7 @@
 package com.pavelgostudy.startandroid.covisor.view;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModelProvider;
@@ -17,7 +20,6 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputLayout;
-import com.pavelgostudy.startandroid.covisor.MyApp;
 import com.pavelgostudy.startandroid.covisor.R;
 import com.pavelgostudy.startandroid.covisor.viewmodel.AuthViewModel;
 
@@ -31,6 +33,8 @@ public class AuthFragment extends Fragment {
     private TextInputLayout login;
     private TextInputLayout password;
     private SavedStateHandle savedStateHandle;
+    private SharedPreferences sharedPreferences;
+    private Toolbar toolbar;
     public static String LOGIN_SUCCESSFUL = "LOGIN_SUCCESSFUL";
 
     @Override
@@ -43,7 +47,10 @@ public class AuthFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_auth, container, false);
         bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation_view);
-        bottomNavigationView.setVisibility(View.INVISIBLE);
+        bottomNavigationView.setVisibility(View.GONE);
+        toolbar = requireActivity().findViewById(R.id.toolbar);
+        toolbar.setVisibility(View.GONE);
+        toolbar.hideOverflowMenu();
         return v;
     }
 
@@ -62,7 +69,11 @@ public class AuthFragment extends Fragment {
                 TextView t = requireActivity().findViewById(R.id.userfio_id);
                 t.setText(response.getFio());
                 savedStateHandle.set(LOGIN_SUCCESSFUL, true);
-                savedStateHandle.set("empid",response.getEmpid() );
+                sharedPreferences = requireActivity().getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("empid", response.getEmpid());
+                editor.apply();
+                toolbar.setVisibility(View.VISIBLE);
                 NavHostFragment.findNavController(this).popBackStack();
             } else {
                 Toast.makeText(getContext(), "Неверный логин или пароль", Toast.LENGTH_SHORT).show();
@@ -70,11 +81,9 @@ public class AuthFragment extends Fragment {
         });
 
         authViewModel.getErrorLiveData().observe(getViewLifecycleOwner(), error -> Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show());
-        view.findViewById(R.id.sign_in_btn).setOnClickListener(v -> {
-            authViewModel.launchAuthProcess(
-                    Objects.requireNonNull(login.getEditText()).getText().toString(),
-                    Objects.requireNonNull(password.getEditText()).getText().toString());
-        });
+        view.findViewById(R.id.sign_in_btn).setOnClickListener(v -> authViewModel.launchAuthProcess(
+                Objects.requireNonNull(login.getEditText()).getText().toString(),
+                Objects.requireNonNull(password.getEditText()).getText().toString()));
     }
 
 
